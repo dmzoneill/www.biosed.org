@@ -1,0 +1,598 @@
+/*<group=General Styles>*/
+
+body {
+	font: 11px   'Lucida Grande', LucidaGrande, Lucida, Helvetica, Arial, sans-serif;
+	margin: 0px 10px 0px 40px;
+	color: #333333;
+	background: url(images/body_bg.png) repeat-x scroll #555555;
+	text-align: left;
+}
+
+p { 
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+a:link {
+	color: #0080ff;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #1e77d3;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #005ab4;
+	text-decoration: underline;
+}
+
+.image-left {
+	margin: 3px;
+	padding: 3px;
+	float: left;
+}
+
+.image-right {
+	margin: 3px;
+	padding: 3px;
+	float: right;
+}
+	
+/*</group>*/
+
+/*<group=Layout>*/
+
+#container {
+	background: #FFFFFF repeat-y left  url(images/sidebar_bg.png); 
+	width: 730px;
+	text-align: left; 
+	color: #3e3e3e;
+	font-family: 'Lucida Grande', LucidaGrande, Lucida, Helvetica, Arial, sans-serif;
+	color: #333333;
+}
+
+#pageHeader {
+	width: 730px;
+	text-align: left;
+	list-style: none;
+	height: 83px;
+	background: #ffffff;
+}
+
+#pageHeader img {
+	float: left;
+	padding-left: 10px;
+	padding-top: 10px;
+}
+
+#pageHeader h1 {
+	color: #424242;
+	margin: 0px;
+	font-weight: normal;
+	font-size: 28px;
+	padding: 15px 20px 0px 190px;
+}
+
+#pageHeader h2 {
+	color: #999999;
+	margin: 0px;
+	font-size: 12px;
+	font-weight: normal;
+	padding-right: 20px;
+	padding-left: 190px;
+}
+
+#bannerContainer {
+	width: 730px;
+	float: left;
+	text-align: left;
+	background: url(images/banner.jpg) no-repeat;
+	height: 176px;
+	margin: 0px;
+}
+
+#contentContainer {
+	text-align: left;
+	float: right;
+	width: 550px;
+	padding-bottom: 20px;
+}
+
+#contentContainer #content {
+	line-height: 1.5em;
+	padding-right: 30px;
+	padding-left: 10px;
+	padding-top: 21px;
+}
+
+#sidebarContainer {
+	width: 167px;
+	float: left;
+	text-align: left;
+}
+
+#sidebarContainer .sidebar {
+	line-height: 1.5em;
+	padding: 10px;
+}
+
+#footer {
+	background: repeat-x  url(images/footer_bg.png);
+	text-align: center;
+	color: #ffffff;
+	height: 20px;
+	padding-top: 10px;
+}
+
+#footer a {
+	color: #191919;
+}
+
+#footer a:hover {
+	color: #191919;
+	text-decoration: underline;
+}
+	
+/*</group>*/
+
+/*<group=Bread-crumb>*/
+
+#breadcrumbcontainer {
+	background: #ffffff;
+	text-align: right;
+	width: 720px;
+}
+
+#breadcrumbcontainer ul {
+	display: inline;
+	list-style: none;
+	position: relative;
+	top: 5px;
+	margin: 0px 0px 5px 0px;
+	width: 720px;
+}
+
+#breadcrumbcontainer li {
+	display: inline;
+}
+
+#breadcrumbcontainer a {
+}
+
+#breadcrumbcontainer a:hover {
+
+}
+	
+/*</group>*/
+
+/*<group=Toolbar>*/
+
+/* Toolbar Styles */
+
+#navcontainer {
+	padding-top: 5px;
+	width: 168px;
+	line-height: 14px;
+	color: #ffffff;
+}
+
+#navcontainer #current {
+	color: #ffffff;
+	font-weight: bold;
+	background: #1e77d3;
+}
+
+/* Parent - Level 0 */
+
+#navcontainer ul {
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+#navcontainer li { 
+}
+
+#navcontainer a {
+	display: block;
+	color: #ffffff;
+	text-decoration: none;
+	padding-left: 10px;
+	height: 15px;
+}
+
+#navcontainer a:hover {
+	color: #ffffff;
+	background: #1e77d3;
+}
+
+/* Child - Level 1 */
+
+#navcontainer ul ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+#navcontainer ul ul li { 
+}
+
+#navcontainer ul ul a {
+	display: block;
+	text-decoration: none;
+	padding-left: 20px;
+	color: #11477f;
+	font-size: 11px;
+	height: 15px;
+}
+
+#navcontainer ul ul a:hover {
+}
+
+/* Child - Level 2 */
+
+#navcontainer ul ul ul {
+	color: #808080;
+}
+
+#navcontainer ul ul ul li { 
+}
+
+#navcontainer ul ul ul a {
+	display: block;
+	text-decoration: none;
+	padding-left: 35px;
+}
+
+#navcontainer ul ul ul a:hover {
+	background: transparent;
+}
+
+/* Child - Level 3 */
+
+#navcontainer ul ul ul ul {
+	color: #999999;
+}
+
+#navcontainer ul ul ul ul li { 
+}
+
+#navcontainer ul ul ul ul a {
+	display: block;
+	text-decoration: none;
+	padding-left: 50px;
+}
+
+#navcontainer ul ul ul ul a:hover {
+	background: transparent;
+}
+
+/* Child - Level 4 */
+
+#navcontainer ul ul ul ul ul {
+	color: #b3b3b3;
+}
+
+#navcontainer ul ul ul ul ul li { 
+}
+
+#navcontainer ul ul ul ul ul a {
+	display: block;
+	text-decoration: none;
+	padding-left: 65px;
+}
+
+#navcontainer ul ul ul ul ul a:hover {
+	background: transparent;
+}
+
+/* Child - Level 5 */
+
+#navcontainer ul ul ul ul ul ul {
+	padding: 0px;
+	margin: 0px 0px 0px 15px;
+	color: #cccccc;
+}
+
+#navcontainer ul ul ul ul ul ul li { 
+}
+
+#navcontainer ul ul ul ul ul ul a {
+	display: block;
+	text-decoration: none;
+	padding-left: 60px;
+}
+
+#navcontainer ul ul ul ul ul ul a:hover {
+	background: transparent;
+}
+	
+/*</group>*/
+
+/*<group=Global Classes>*/
+
+.standout {
+	background: #1e77d3;
+	font-size: 12px;
+	color: #ffffff;
+	padding: 10px;
+	font-style: italic;
+	font-weight: bold;
+}
+
+h1 {
+	color: #1e77d3;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+h2 {
+	color: #1e77d3;
+	font-size: 22px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+h3 {
+	color: #1e77d3;
+	font-size: 20px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+h4 {
+	color: #1e77d3;
+	font-size: 18px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+h5 {
+	color: #1e77d3;
+	font-size: 16px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+.imageStyle {
+}
+	
+/*</group>*/
+
+/*<group=Blog>*/
+
+/*<group=Archive Page>*/
+
+.blog-archive-background {
+	color: #000000;
+	text-align: center; /* To Make Content Centered */
+	font: 12px 'Lucida Grande', Geneva, Arial, Verdana, sans-serif;
+	background: #ffffff;
+}
+
+.blog-archive-headings-wrapper {
+	text-align: left;
+	width: 590px;
+	padding: 10px;
+}
+
+.blog-archive-entries-wrapper {
+	text-align: left;
+	width: 590px;
+	padding: 10px;
+}
+
+.blog-archive-month {
+	color: #1e77d3;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+.blog-archive-link { 
+}
+	
+/*</group>*/
+
+.blog-entry {
+}
+
+.blog-entry-title {
+	color: #1e77d3;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+.blog-entry-date {
+	margin-bottom: 10px;
+	margin-top: 5px;
+}
+
+.blog-entry-body {
+	margin-bottom: 30px;
+	border-bottom: 1px dotted #59554c;
+	padding-bottom: 10px;
+}
+	
+/*</group>*/
+
+/*<group=File Sharing>*/
+
+.filesharing-description {
+	margin-bottom: 20px;
+	border-bottom: 1px solid #d9d9d9;
+}
+
+.filesharing-item {
+	
+}
+
+.filesharing-item-title {
+	color: #1e77d3;
+	font-size: 14px;
+	font-weight: normal;
+}
+
+.filesharing-item-description {
+	margin-bottom: 10px;
+}
+
+/*</group>*/
+
+/*<group=Photo Album>*/
+
+/*<group=Index Page (Thumbnail view)>*/
+
+.album-title {
+	color: #1e77d3;
+	font-size: 24px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+.album-description {
+}
+
+.thumbnail-frame {
+	margin: 0px;
+	padding: 0px;
+}
+
+.thumbnail-frame a {
+}
+
+.thumbnail-frame a:hover {
+}
+
+.thumbnail-frame img {
+	border-style: none;
+}
+
+.thumbnail-caption {
+	color: #808080;
+	margin-top: 3px;
+	font-size: 0.8em;
+}
+	
+/*</group>*/
+
+/*<group=Single Page (Photo view)>*/
+
+.photo-background {
+	text-align: center;
+	margin: 10px;
+	background: #555555;
+}
+
+.photo-navigation {
+	padding: 10px;
+	text-align: left;
+	background: #3390d9;
+	margin-bottom: 10px;
+}
+
+.photo-navigation a {
+	color: #191919;
+}
+
+.photo-navigation a:hover {
+	color: #191919;
+	text-decoration: underline;
+}
+
+.photo-frame{
+	margin: 0px;
+	border: 5px solid #ffffff;
+}
+
+.photo-links {
+}
+
+.photo-title {
+	color: #081825;
+	font-size: 18px;
+	font-weight: normal;
+	margin: 0px 0px 5px 0px;
+}
+
+.photo-caption {
+	font-size: 13px;
+	margin: 0px;
+	color: #ffffff;
+}
+
+/*</group>*/
+	
+/*</group>*/
+
+/*<group=Quicktime Page>*/
+
+.movie-description {
+	text-align: center;
+}
+	
+/*</group>*/
+
+/*<group=Quicktime Album>*/
+
+/*<group=Index Page (Movie Thumbnail view)>*/
+
+.movie-page-title {
+	color: #1e77d3;
+	font-size: 24px;
+	font-weight: normal;
+	text-align: left;
+}
+
+.movie-page-description {	
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
+
+.movie-thumbnail-frame {
+	float: left;
+	display: inline;
+	margin-bottom: 10px;
+	margin-right: 10px;
+}
+
+.movie-thumbnail-caption {
+	text-align: center;
+	color: #808080;
+	margin-top: 3px;
+	font-size: 11px;
+
+}
+	
+/*</group>*/
+
+/*<group=Single Page (Movie View)>*/
+
+.movie-background {
+	background: #ffffff;
+	margin-top: 5px;
+}
+
+.movie-title {
+	color: #1e77d3;
+	font-size: 24px;
+	font-weight: normal;
+	text-align: center;
+}
+
+.movie-frame {
+	text-align: center;
+	margin-bottom: 10px;
+}
+	
+/*</group>*/
+
+
+/*</group>*/
+
+
