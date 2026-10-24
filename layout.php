@@ -1,8 +1,21 @@
+<?php
+
+/**
+ * Shared page layout for the biosed.org pages.
+ *
+ * @param string $pageText     HTML shown in the main content cell.
+ * @param string $pageKeywords Optional meta keywords.
+ */
+function renderPage(string $pageText, string $pageKeywords = ''): void
+{
+    ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<?php if (!empty($pageKeywords)) { echo '<meta name="keywords" content="' . $pageKeywords . '">' . "\n"; } ?>
+    <?php if ($pageKeywords !== '') : ?>
+<meta name="keywords" content="<?php echo $pageKeywords; ?>">
+    <?php endif; ?>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>biosed dot org</title>
 <link href="main.css" rel="stylesheet" type="text/css">
@@ -11,7 +24,8 @@
 <body>
 <table width="859"  border="1" class="tables">
   <tr class="tables">
-    <td width="148" height="147" align="left" valign="top" nowrap class="tables"><img name="biosed_MENU" src="biosed_MENU.jpg" width="250" height="143" border="0" usemap="#m_biosed_MENU" alt="">
+    <td width="148" height="147" align="left" valign="top" nowrap class="tables"><img name="biosed_MENU"
+      src="biosed_MENU.jpg" width="250" height="143" border="0" usemap="#m_biosed_MENU" alt="">
       <map name="m_biosed_MENU">
         <area shape="rect" coords="65,125,153,137" href="about.php" alt="" >
         <area shape="rect" coords="94,99,169,114" href="links.php" alt="" >
@@ -20,69 +34,9 @@
         <area shape="rect" coords="98,22,155,33" href="home.php" alt="" >
       </map></td>
     <td width="467" class="tables">
-  <td width="74" class="tables">    
-  
-<?php
-/*
-    By Matt Mullenweg > http://photomatt.net
-    Inspired by Dan Benjamin > http://hiveware.com/imagerotator.php
-    Latest version always at:
-    http://photomatt.net/scripts/randomimage
-*/
+  <td width="74" class="tables">
 
-// Make this the relative path to the images, like "../img" or "random/images/".
-// If the images are in the same directory, leave it blank.
-$folder = 'photo/31-07-04/slides/';
-
-// Space seperated list of extensions, you probably won't have to change this.
-$exts = 'jpg jpeg png gif';
-
-$files = array(); $i = -1; // Initialize some variables
-if ('' == $folder) $folder = './';
-$handle = opendir($folder);
-$exts = explode(' ', $exts);
-while (false !== ($file = readdir($handle))) {
-    foreach($exts as $ext) { // for each extension check the extension
-        if (preg_match('/\.'.$ext.'$/i', $file, $test)) { // faster than ereg, case insensitive
-            $files[] = $file; // it's good
-            ++$i;
-            }
-        }
-    }
-closedir($handle); // We're not using it anymore
-mt_srand((double)microtime()*1000000); // seed for PHP < 4.2
-$rand = mt_rand(0, $i); // $i was incremented as we went along
-
-
-
-
-
-
-
-echo '<marquee bgcolor=#ffffff direction=up height=100 onMouseOut=this.scrollAmount=1 ';
-echo 'onMouseOver=this.scrollAmount=0 scrollamount=1 width=156>';
-echo '<font color=#000000 ';
-echo 'face="arial, verdana, Times, serif" size=1> <b> ';
-echo '<img src="' . $folder.$files[$rand] . '"  width="250" height="143">'; // Voila!
-$rand = mt_rand(0, $i); // $i was incremented as we went along
-echo '<img src="' . $folder.$files[$rand] . '"  width="250" height="143">'; // Voila!
-$rand = mt_rand(0, $i); // $i was incremented as we went along
-echo '<img src="' . $folder.$files[$rand] . '"  width="250" height="143">'; // Voila!
-$rand = mt_rand(0, $i); // $i was incremented as we went along
-echo '<img src="' . $folder.$files[$rand] . '"  width="250" height="143">'; // Voila!
-$rand = mt_rand(0, $i); // $i was incremented as we went along
-echo '<img src="' . $folder.$files[$rand] . '"  width="250" height="143">'; // Voila!
-echo '</marquee>';
-
-
-
-
-
-
-
-
-?>
-
+    <?php renderRandomImages('photo/31-07-04/slides/', 5); ?>
   </tr>
   <tr align="center" valign="middle">
   <td height="208" colspan="3" class="tables"><table width="573" height="179" border="0">
@@ -90,98 +44,52 @@ echo '</marquee>';
       <td height="175" align="left" valign="top"><p class="text"><?php echo $pageText; ?></p>
         </td>
     </tr>
-  </table> 
+  </table>
   </tr>
   <tr class="tables">
     <td height="130" class="tables">
-	
-	
-	
-	</td>
+
+
+
+    </td>
     <td class="tables">&nbsp;</td>
     <td class="tables"><img src="biosed_main.jpg" width="298" height="128"></td>
   </tr>
 </table>
-<?php
-$code = 'function gd_info() {
-       $array = Array(
-                       "GD Version" => "",
-                       "FreeType Support" => 0,
-                       "FreeType Support" => 0,
-                       "FreeType Linkage" => "",
-                       "T1Lib Support" => 0,
-                       "GIF Read Support" => 0,
-                       "GIF Create Support" => 0,
-                       "JPG Support" => 0,
-                       "PNG Support" => 0,
-                       "WBMP Support" => 0,
-                       "XBM Support" => 0
-                     );
-       $gif_support = 0;
-
-       ob_start();
-       eval("phpinfo();");
-       $info = ob_get_contents();
-       ob_end_clean();
-    
-       foreach(explode("\n", $info) as $line) {
-           if(strpos($line, "GD Version")!==false)
-               $array["GD Version"] = trim(str_replace("GD Version", "", strip_tags($line)));
-           if(strpos($line, "FreeType Support")!==false)
-               $array["FreeType Support"] = trim(str_replace("FreeType Support", "", strip_tags($line)));
-           if(strpos($line, "FreeType Linkage")!==false)
-               $array["FreeType Linkage"] = trim(str_replace("FreeType Linkage", "", strip_tags($line)));
-           if(strpos($line, "T1Lib Support")!==false)
-               $array["T1Lib Support"] = trim(str_replace("T1Lib Support", "", strip_tags($line)));
-           if(strpos($line, "GIF Read Support")!==false)
-               $array["GIF Read Support"] = trim(str_replace("GIF Read Support", "", strip_tags($line)));
-           if(strpos($line, "GIF Create Support")!==false)
-               $array["GIF Create Support"] = trim(str_replace("GIF Create Support", "", strip_tags($line)));
-           if(strpos($line, "GIF Support")!==false)
-               $gif_support = trim(str_replace("GIF Support", "", strip_tags($line)));
-           if(strpos($line, "JPG Support")!==false)
-               $array["JPG Support"] = trim(str_replace("JPG Support", "", strip_tags($line)));
-           if(strpos($line, "PNG Support")!==false)
-               $array["PNG Support"] = trim(str_replace("PNG Support", "", strip_tags($line)));
-           if(strpos($line, "WBMP Support")!==false)
-               $array["WBMP Support"] = trim(str_replace("WBMP Support", "", strip_tags($line)));
-           if(strpos($line, "XBM Support")!==false)
-               $array["XBM Support"] = trim(str_replace("XBM Support", "", strip_tags($line)));
-       }
-      
-       if($gif_support==="enabled") {
-           $array["GIF Read Support"]  = 1;
-           $array["GIF Create Support"] = 1;
-       }
-
-       if($array["FreeType Support"]==="enabled"){
-           $array["FreeType Support"] = 1;    }
- 
-       if($array["T1Lib Support"]==="enabled")
-           $array["T1Lib Support"] = 1;   
-      
-       if($array["GIF Read Support"]==="enabled"){
-           $array["GIF Read Support"] = 1;    }
- 
-       if($array["GIF Create Support"]==="enabled")
-           $array["GIF Create Support"] = 1;   
-
-       if($array["JPG Support"]==="enabled")
-           $array["JPG Support"] = 1;
-          
-       if($array["PNG Support"]==="enabled")
-           $array["PNG Support"] = 1;
-          
-       if($array["WBMP Support"]==="enabled")
-           $array["WBMP Support"] = 1;
-          
-       if($array["XBM Support"]==="enabled")
-           $array["XBM Support"] = 1;
-      
-       return $array;
-   }';
-
-if(!function_exists("gd_info")) eval($code);
-?>
 </body>
 </html>
+    <?php
+}
+
+/**
+ * Print a scrolling marquee of randomly chosen images from a folder.
+ *
+ * Based on the random image script by Matt Mullenweg (photomatt.net).
+ *
+ * @param string $folder Relative path to the image folder, with trailing slash.
+ * @param int    $count  Number of images to show.
+ */
+function renderRandomImages(string $folder, int $count): void
+{
+    $files = [];
+    $handle = opendir($folder);
+    if ($handle !== false) {
+        while (($file = readdir($handle)) !== false) {
+            if (preg_match('/\.(jpg|jpeg|png|gif)$/i', $file) === 1) {
+                $files[] = $file;
+            }
+        }
+        closedir($handle);
+    }
+
+    echo '<marquee bgcolor=#ffffff direction=up height=100 onMouseOut=this.scrollAmount=1 ';
+    echo 'onMouseOver=this.scrollAmount=0 scrollamount=1 width=156>';
+    echo '<font color=#000000 ';
+    echo 'face="arial, verdana, Times, serif" size=1> <b> ';
+    if ($files !== []) {
+        for ($n = 0; $n < $count; $n++) {
+            echo '<img src="' . $folder . $files[array_rand($files)] . '"  width="250" height="143">';
+        }
+    }
+    echo '</marquee>';
+}
